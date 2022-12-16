@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="shortcut icon"
+      href="./Images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="game_name">
+          Rock <br />
+          Paper <br />
+          Scissors
+        </h1>
+        <div id="score">
+          <p id="score_name">Score</p>
+          <p id="score_number">12</p>
+        </div>
+      </header>
+      <main>
+        <div id="choose_mode">
+          <div class="paper game_button">
+            <img src="./Images/icon-paper.svg" alt="Paper" />
+          </div>
+          <div class="scissors game_button">
+            <img src="./Images/icon-scissors.svg" alt="Scissors" />
+          </div>
+          <div class="rock game_button">
+            <img src="./Images/icon-rock.svg" alt="Rock" />
+          </div>
+        </div>
+        <div id="game_mode">
+          <div id="user_choice">
+            <p>You picked</p>
+          </div>
+          <div id="play_again">
+            <p>You loose</p>
+            <button>Play again</button>
+          </div>
+          <div id="computer_choice">
+            <p>The house picked</p>
+            <div id="load_container"></div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <button id="rules">Rules</button>
+      </footer>
+      <div id="rules">
+        <h3>Rules</h3>
+        <img src="./Images/image-rules.svg" alt="" />
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

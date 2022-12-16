@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700;900&display=swap");
+
+body {
+  background: rgb(9, 9, 121);
+  background: radial-gradient(
+    circle at 50% 0,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(2, 0, 36, 1) 93%
+  );
+  display: flex;
+  justify-content: center;
+  color: white;
+  /* overflow: hidden; */
+  font-family: "Unbounded", cursive;
+  margin: 0;
+  height: 100vh;
+}
+
+.container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  margin-top: 5%;
+}
+
+#game_name {
+  line-height: 1.2;
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+}
+
+#score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+  background-color: #fff;
+  color: rgba(9, 9, 121, 1);
+  font-size: 1em;
+}
+
+#score p {
+  margin: 0;
+}
+
+#score_name {
+  font-weight: 400;
+}
+
+#score_number {
+  font-size: 3em;
+  font-weight: 700;
+  color: grey;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#choose_mode {
+  height: 60vh;
+  width: 60vh;
+  background-image: url("./Images/bg-triangle.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "paper scissors"
+    "rock rock";
+  justify-content: center;
+  align-content: center;
+}
+
+.game_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  height: 20vh;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px 10px 0px 0px rgba(34, 60, 80, 0.2) inset;
+}
+
+.game_button img {
+  width: 50%;
+  height: 50%;
+}
+
+.paper {
+  grid-area: paper;
+  align-self: start;
+  justify-self: start;
+  border: 15px solid blue;
+}
+
+.scissors {
+  grid-area: scissors;
+  align-self: start;
+  justify-self: end;
+  border: 15px solid yellow;
+}
+
+.rock {
+  grid-area: rock;
+  align-self: center;
+  justify-self: center;
+  border: 15px solid red;
+}
+
+#game_mode {
+  display: none;
+  width: 100%;
+  justify-content: space-between;
+  opacity: 0;
+}
+
+#computer_choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#load_container {
+  height: 20vh;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.load {
+  aspect-ratio: 1/1;
+  height: 10vh;
+  border-radius: 50%;
+  background-color: gray;
+  border: 15px solid gray;
+}
+
+#play_again {
+  display: none;
+  opacity: 0;
+}
+
+#rules {
+  display: none;
+}
