@@ -93,16 +93,31 @@ const switchToGameMode = (game_button) => {
 const game_buttons = Array.from(
   document.querySelector("#choose_mode").querySelectorAll(".game_button")
 );
-game_buttons.map((elem) => {
-  elem.addEventListener("click", function handler(event) {
-    event.currentTarget.removeEventListener(event.type, handler);
-    user_choice = variants.indexOf(elem.classList[0]);
-    switchToGameMode(elem);
-  });
+
+const game_button_images = Array.from(
+  document.querySelectorAll(".game_button_image")
+);
+
+const gameModeHandler = (event) => {
+  const elem = event.currentTarget;
+  elem.removeEventListener("click", gameModeHandler);
+  user_choice = variants.indexOf(elem.classList[0]);
+  switchToGameMode(elem);
+};
+
+game_buttons.forEach((elem) => {
+  elem.addEventListener("click", gameModeHandler);
 });
 
 const play_again_button = document.querySelector("#play_again");
+
 play_again_button.addEventListener("click", () => {
+  game_buttons.forEach((elem) => {
+    elem.removeEventListener("click", gameModeHandler);
+  });
+  game_buttons.forEach((elem) => {
+    elem.addEventListener("click", gameModeHandler);
+  });
   animations.animateFromTo("game_mode", "disappearance");
   document.querySelector("#user_choice").querySelectorAll("div")[0].remove();
   document
