@@ -20,11 +20,11 @@ export default class Animations {
 
     this.load = {
       name: "height",
-      units: "vh",
-      from: 10,
-      to: 20,
-      time: 20,
-      change: 1,
+      units: "%",
+      from: 0,
+      to: 100,
+      time: 10,
+      change: 5,
     };
   }
 

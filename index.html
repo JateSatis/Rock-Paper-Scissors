@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./Styles/main.css" />
+    <link rel="stylesheet" href="./Styles/responsive.css" />
     <link
       rel="shortcut icon"
       href="./Images/favicon-32x32.png"
@@ -13,52 +14,58 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1 id="game_name">
-          Rock <br />
-          Paper <br />
-          Scissors
-        </h1>
-        <div id="score">
-          <p id="score_name">Score</p>
-          <p id="score_number">12</p>
-        </div>
-      </header>
-      <main>
-        <div id="choose_mode">
-          <div class="paper game_button">
-            <img class="game_button_image" src="./Images/icon-paper.svg" alt="Paper" />
-          </div>
-          <div class="scissors game_button">
-            <img class="game_button_image" src="./Images/icon-scissors.svg" alt="Scissors" />
-          </div>
-          <div class="rock game_button">
-            <img class="game_button_image" src="./Images/icon-rock.svg" alt="Rock" />
-          </div>
-        </div>
-        <div id="game_mode">
-          <div class="game_choice">
-            <p>You picked</p>
-            <div id="user_choice" class="center_flex"></div>
-          </div>
-          <div id="play_again">
-            <p>You loose</p>
-            <button>Play again</button>
-          </div>
-          <div class="game_choice">
-            <p>The house picked</p>
-            <div id="computer_choice" class="center_flex"></div>
-          </div>
-        </div>
-      </main>
-      <footer>
-        <button id="rules">Rules</button>
-      </footer>
-      <div id="rules">
-        <h3>Rules</h3>
-        <img src="./Images/image-rules.svg" alt="" />
+    <header>
+      <h1 id="game_name">
+        Rock <br />
+        Paper <br />
+        Scissors
+      </h1>
+      <div id="score">
+        <p id="score_name">Score</p>
+        <p id="score_number">12</p>
       </div>
+    </header>
+    <main>
+      <div id="choose_mode">
+        <div class="paper game_button">
+          <img
+            class="game_button_image"
+            src="./Images/icon-paper.svg"
+            alt="Paper"
+          />
+        </div>
+        <div class="scissors game_button">
+          <img
+            class="game_button_image"
+            src="./Images/icon-scissors.svg"
+            alt="Scissors"
+          />
+        </div>
+        <div class="rock game_button">
+          <img
+            class="game_button_image"
+            src="./Images/icon-rock.svg"
+            alt="Rock"
+          />
+        </div>
+      </div>
+      <div id="game_mode">
+        <p id="user_name">You picked</p>
+        <div id="user_choice" class="center_flex"></div>
+        <div id="play_again">
+          <p>You loose</p>
+          <button id="play_again_button">Play again</button>
+        </div>
+        <p id="computer_name">The house picked</p>
+        <div id="computer_choice" class="center_flex"></div>
+      </div>
+    </main>
+    <footer>
+      <button id="rules">Rules</button>
+    </footer>
+    <div id="rules">
+      <h3>Rules</h3>
+      <img src="./Images/image-rules.svg" alt="" />
     </div>
   </body>
   <script type="module" src="./Scripts/index.js"></script>

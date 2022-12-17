@@ -8,7 +8,9 @@ body {
     rgba(2, 0, 36, 1) 93%
   );
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   color: white;
   /* overflow: hidden; */
   font-family: "Unbounded", cursive;
@@ -16,33 +18,19 @@ body {
   height: 100vh;
 }
 
-.center_flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-.container {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 header {
   display: flex;
   justify-content: space-between;
+  width: 40%;
   padding: 20px;
   border: 2px solid rgba(255, 255, 255, 0.7);
   border-radius: 20px;
-  margin-top: 5%;
+  margin-top: 5vh;
 }
 
 #game_name {
   line-height: 1.2;
-  font-size: 2em;
+  font-size: 4vh;
   padding: 0;
   margin: 0;
 }
@@ -67,22 +55,23 @@ header {
 }
 
 #score_number {
-  font-size: 3em;
+  font-size: 5vh;
   font-weight: 700;
   color: grey;
 }
 
 main {
   height: 100%;
+  width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #choose_mode {
-  height: 60vh;
-  width: 60vh;
-  background-image: url("./Images/bg-triangle.svg");
+  aspect-ratio: 1/1;
+  height: 80%;
+  background-image: url("../Images/bg-triangle.svg");
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -94,6 +83,7 @@ main {
     "rock rock";
   justify-content: center;
   align-content: center;
+  align-items: center;
 }
 
 .game_button {
@@ -101,10 +91,15 @@ main {
   justify-content: center;
   align-items: center;
   aspect-ratio: 1/1;
-  height: 20vh;
+  height: 40%;
   border-radius: 50%;
   background-color: #fff;
   box-shadow: 0px 10px 0px 0px rgba(34, 60, 80, 0.2) inset;
+}
+
+.game_button_big {
+  aspect-ratio: 1/1;
+  height: 30vh;
 }
 
 .game_button img {
@@ -114,51 +109,95 @@ main {
 
 .paper {
   grid-area: paper;
-  align-self: start;
   justify-self: start;
   border: 15px solid blue;
 }
 
 .scissors {
   grid-area: scissors;
-  align-self: start;
   justify-self: end;
   border: 15px solid yellow;
 }
 
 .rock {
   grid-area: rock;
-  align-self: center;
   justify-self: center;
   border: 15px solid red;
 }
 
 #game_mode {
   display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "user_name void computer_name"
+    "user_choice play_again computer_choice";
+  justify-content: center;
+  align-content: space-between;
+  justify-items: center;
+  align-items: center;
   width: 100%;
-  justify-content: space-between;
-  transition: all 1s;
+  height: 100%;
   opacity: 0;
 }
 
-.game_choice {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+#user_name {
+  grid-area: user_name;
+  align-self: end;
+  margin-bottom: 5vh;
 }
 
-.load {
+#user_choice {
+  height: max-content;
+  grid-area: user_choice;
+  align-self: start;
+}
+
+#computer_name {
+  grid-area: computer_name;
+  align-self: end;
+  margin-bottom: 5vh;
+}
+
+#computer_choice {
+  height: max-content;
+  grid-area: computer_choice;
+  align-self: start;
+}
+
+#load_container {
   aspect-ratio: 1/1;
-  height: 10vh;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#load {
+  aspect-ratio: 1/1;
   border-radius: 50%;
+  height: 0vh;
   background-color: gray;
-  border: 15px solid gray;
 }
 
 #play_again {
   display: none;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   opacity: 0;
+  grid-area: play_again;
+  align-self: start;
+  width: 100%;
+  height: 100%;
+}
+
+#play_again_button {
+  border: none;
+  background-color: white;
+  width: 80%;
+  height: 20%;
 }
 
 #rules {

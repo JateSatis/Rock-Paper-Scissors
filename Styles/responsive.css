@@ -1,0 +1,82 @@
+@media screen and (max-width: 1200px) {
+  header {
+    width: 70%;
+  }
+
+  main {
+    width: 90%;
+  }
+
+  .game_button_big {
+    height: 20vh;
+  }
+
+  #load_container {
+    height: 20vh;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #game_name {
+    font-size: 1.5em;
+  }
+
+  #score {
+    width: 33%;
+  }
+
+  #score_number {
+    font-size: 2em;
+  }
+
+  #choose_mode {
+    aspect-ratio: 1/1;
+    width: 80%;
+    height: auto;
+  }
+
+  .game_button_big {
+    height: 15vh;
+  }
+
+  .paper {
+    align-self: start;
+  }
+
+  .scissors {
+    align-self: start;
+  }
+
+  #game_mode {
+    height: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 2fr;
+    grid-template-areas:
+      "user_choice computer_choice"
+      "user_name computer_name"
+      "play_again play_again";
+  }
+
+  #user_name {
+    align-self: start;
+  }
+
+  #computer_name {
+    align-self: start;
+  }
+
+  #user_choice {
+    align-self: end;
+  }
+
+  #computer_choice {
+    align-self: end;
+  }
+
+  #load_container {
+    height: 10vh;
+  }
+}
+
+@media screen {
+}

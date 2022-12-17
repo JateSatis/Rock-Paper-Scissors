@@ -7,18 +7,20 @@ let user_choice;
 let computer_choice;
 
 const createLoad = () => {
-  const element = document.createElement("div");
-  element.className = "load";
-  element.id = "load";
   const parent = document.getElementById("computer_choice");
-  parent.appendChild(element);
+  const container = document.createElement("div");
+  const element = document.createElement("div");
+  container.id = "load_container";
+  element.id = "load";
+  container.appendChild(element);
+  parent.appendChild(container);
   return element;
 };
 
 const createGameButton = (player_name, name, parent_id) => {
   const element = document.createElement("div");
   element.id = `${player_name}_${name}`;
-  element.className = `${name} game_button`;
+  element.className = `${name} game_button game_button_big`;
   const image = document.createElement("img");
   image.src = `./Images/icon-${name}.svg`;
   image.alt = name;
@@ -47,26 +49,26 @@ const switchToGameMode = (game_button) => {
   const choose_mode = document.getElementById("choose_mode");
   const game_mode = document.getElementById("game_mode");
   animations
-    .animateFromTo("choose_mode", "disappearance", 500)
+    .animateFromTo("choose_mode", "disappearance", 200)
     .then(() => {
       choose_mode.style.display = "none";
-      game_mode.style.display = "flex";
+      game_mode.style.display = "grid";
       const load = createLoad();
       const user_button = createGameButton(
         "user",
         game_button.classList[0],
         "user_choice"
       );
-      return animations.animateFromTo("game_mode", "appearance", 500);
+      return animations.animateFromTo("game_mode", "appearance", 200);
     })
     .then(() => {
-      return animations.animateFromTo("load", "load", 500);
+      return animations.animateFromTo("load", "load", 200);
     })
     .then(() => {
       return animations.animateFromTo("load", "disappearance", 100);
     })
     .then(() => {
-      document.getElementById("load").remove();
+      document.getElementById("load_container").remove();
       computer_choice = Math.floor(Math.random() * 3);
       createGameButton(
         "computer",
@@ -84,7 +86,7 @@ const switchToGameMode = (game_button) => {
       const play_again = document.getElementById("play_again");
       document.getElementById("game_mode").style.justifyContent =
         "space-between";
-      play_again.style.display = "block";
+      play_again.style.display = "flex";
       play_again.getElementsByTagName("p")[0].innerText = `You ${result}`;
       animations.animateFromTo("play_again", "appearance");
     });
@@ -109,7 +111,7 @@ game_buttons.forEach((elem) => {
   elem.addEventListener("click", gameModeHandler);
 });
 
-const play_again_button = document.querySelector("#play_again");
+const play_again_button = document.querySelector("#play_again_button");
 
 play_again_button.addEventListener("click", () => {
   game_buttons.forEach((elem) => {
