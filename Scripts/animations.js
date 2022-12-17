@@ -17,15 +17,6 @@ export default class Animations {
       time: 10,
       change: 5,
     };
-
-    this.load = {
-      name: "height",
-      units: "%",
-      from: 0,
-      to: 100,
-      time: 10,
-      change: 5,
-    };
   }
 
   animateFromTo(element_id, animation_name, animation_delay) {

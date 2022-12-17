@@ -12,10 +12,11 @@ body {
   justify-content: space-between;
   align-items: center;
   color: white;
-  /* overflow: hidden; */
+  overflow: hidden;
   font-family: "Unbounded", cursive;
   margin: 0;
   height: 100vh;
+  text-transform: uppercase;
 }
 
 header {
@@ -44,6 +45,7 @@ header {
   background-color: #fff;
   color: rgba(9, 9, 121, 1);
   font-size: 1em;
+  border-radius: 20px;
 }
 
 #score p {
@@ -130,13 +132,13 @@ main {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 2fr;
   grid-template-areas:
-    "user_name void computer_name"
+    "user_name play_again computer_name"
     "user_choice play_again computer_choice";
   justify-content: center;
   align-content: space-between;
   justify-items: center;
   align-items: center;
-	text-align: center;
+  text-align: center;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -164,6 +166,8 @@ main {
   height: max-content;
   grid-area: computer_choice;
   align-self: start;
+  background-color: grey;
+  border-radius: 50%;
 }
 
 #load_container {
@@ -189,16 +193,25 @@ main {
   align-items: center;
   opacity: 0;
   grid-area: play_again;
-  align-self: start;
+  align-self: center;
   width: 100%;
-  height: 100%;
+}
+
+#play_again p {
+  font-size: 2em;
+  font-weight: 700;
 }
 
 #play_again_button {
   border: none;
   background-color: white;
   width: 80%;
-  height: 20%;
+  height: 10vh;
+  border-radius: 20px;
+  font-family: inherit;
+	text-transform: inherit;
+	font-size: 100%;
+  color: gray;
 }
 
 #rules {
