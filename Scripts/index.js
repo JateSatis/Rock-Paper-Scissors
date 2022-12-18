@@ -88,9 +88,6 @@ const switchToGameMode = (game_button) => {
 
 const switchToChooseMode = () => {
   game_buttons.forEach((elem) => {
-    elem.removeEventListener("click", gameModeHandler);
-  });
-  game_buttons.forEach((elem) => {
     elem.addEventListener("click", gameModeHandler);
   });
   animations.animateFromTo("game_mode", "disappearance");
@@ -107,17 +104,12 @@ const switchToChooseMode = () => {
   }, 100);
 };
 
-const game_buttons = Array.from(
-  document.querySelector("#choose_mode").querySelectorAll(".game_button")
-);
-
-const game_button_images = Array.from(
-  document.querySelectorAll(".game_button_image")
-);
-
 const gameModeHandler = (event) => {
+  play_again_button.addEventListener("click", chooseModeHandler);
+  game_buttons.forEach((elem) => {
+    elem.removeEventListener("click", gameModeHandler);
+  });
   const elem = event.currentTarget;
-  elem.removeEventListener("click", gameModeHandler);
   user_choice = variants.indexOf(elem.classList[0]);
   animations
     .animateInstantFromTo(elem.id, "button_down", 200)
@@ -130,6 +122,7 @@ const gameModeHandler = (event) => {
 };
 
 const chooseModeHandler = (event) => {
+  play_again_button.removeEventListener("click", chooseModeHandler);
   const play_again = event.currentTarget;
   animations
     .animateInstantFromTo(play_again.id, "button_down", 200)
@@ -141,10 +134,12 @@ const chooseModeHandler = (event) => {
     });
 };
 
-game_buttons.forEach((elem) => {
-  elem.addEventListener("click", gameModeHandler);
-});
+const game_buttons = Array.from(
+  document.querySelector("#choose_mode").querySelectorAll(".game_button")
+);
 
 const play_again_button = document.querySelector("#play_again_button");
 
-play_again_button.addEventListener("click", chooseModeHandler);
+game_buttons.forEach((elem) => {
+  elem.addEventListener("click", gameModeHandler);
+});
