@@ -1,4 +1,5 @@
 import Animations from "./animations.js";
+import "./resizeEffects.js";
 
 const animations = new Animations();
 

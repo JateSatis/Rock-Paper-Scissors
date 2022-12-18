@@ -1,27 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700;900&display=swap");
 
 body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 5fr 0.5fr;
+  align-items: stretch;
+  justify-items: center;
+  height: 100vh;
+  width: 100vw;
   background: rgb(9, 9, 121);
   background: radial-gradient(
     circle at 50% 0,
     rgba(9, 9, 121, 1) 0%,
     rgba(2, 0, 36, 1) 93%
   );
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   color: white;
   overflow: hidden;
   font-family: "Unbounded", cursive;
   margin: 0;
-  height: 100vh;
   text-transform: uppercase;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "game_name void score";
   width: 40%;
   padding: 20px;
   border: 2px solid rgba(255, 255, 255, 0.7);
@@ -30,18 +34,21 @@ header {
 }
 
 #game_name {
+  display: flex;
+  align-items: center;
+  grid-area: game_name;
   line-height: 1.2;
-  font-size: 4vh;
+  font-size: 1em;
   padding: 0;
   margin: 0;
 }
 
 #score {
+  grid-area: score;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 25%;
   background-color: #fff;
   color: rgba(9, 9, 121, 1);
   font-size: 1em;
@@ -57,26 +64,21 @@ header {
 }
 
 #score_number {
-  font-size: 5vh;
+  font-size: 2em;
   font-weight: 700;
   color: grey;
 }
 
 main {
-  height: 100%;
   width: 70%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #choose_mode {
-  aspect-ratio: 1/1;
-  height: 80%;
-  background-image: url("../Images/bg-triangle.svg");
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
+  position: absolute;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -85,7 +87,13 @@ main {
     "rock rock";
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: start;
+  height: 90%;
+  aspect-ratio: 1/1;
+  background-image: url("../Images/bg-triangle.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .game_button {
@@ -124,6 +132,7 @@ main {
 .rock {
   grid-area: rock;
   justify-self: center;
+  align-self: center;
   border: 15px solid red;
 }
 
@@ -209,11 +218,22 @@ main {
   height: 10vh;
   border-radius: 20px;
   font-family: inherit;
-	text-transform: inherit;
-	font-size: 100%;
+  text-transform: inherit;
+  font-size: 100%;
   color: gray;
 }
 
-#rules {
+footer {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+#rules_button {
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+#rules_card {
   display: none;
 }
