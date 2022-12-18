@@ -1,5 +1,5 @@
-import Animations from "./animations.js";
 import "./resizeEffects.js";
+import Animations from "./animations.js";
 
 const animations = new Animations();
 
@@ -86,28 +86,7 @@ const switchToGameMode = (game_button) => {
     });
 };
 
-const game_buttons = Array.from(
-  document.querySelector("#choose_mode").querySelectorAll(".game_button")
-);
-
-const game_button_images = Array.from(
-  document.querySelectorAll(".game_button_image")
-);
-
-const gameModeHandler = (event) => {
-  const elem = event.currentTarget;
-  elem.removeEventListener("click", gameModeHandler);
-  user_choice = variants.indexOf(elem.classList[0]);
-  switchToGameMode(elem);
-};
-
-game_buttons.forEach((elem) => {
-  elem.addEventListener("click", gameModeHandler);
-});
-
-const play_again_button = document.querySelector("#play_again_button");
-
-play_again_button.addEventListener("click", () => {
+const switchToChooseMode = () => {
   game_buttons.forEach((elem) => {
     elem.removeEventListener("click", gameModeHandler);
   });
@@ -126,4 +105,46 @@ play_again_button.addEventListener("click", () => {
     document.getElementById("choose_mode").style.display = "grid";
     animations.animateFromTo("choose_mode", "appearance");
   }, 100);
+};
+
+const game_buttons = Array.from(
+  document.querySelector("#choose_mode").querySelectorAll(".game_button")
+);
+
+const game_button_images = Array.from(
+  document.querySelectorAll(".game_button_image")
+);
+
+const gameModeHandler = (event) => {
+  const elem = event.currentTarget;
+  elem.removeEventListener("click", gameModeHandler);
+  user_choice = variants.indexOf(elem.classList[0]);
+  animations
+    .animateInstantFromTo(elem.id, "button_down", 200)
+    .then(() => {
+      return animations.animateInstantFromTo(elem.id, "button_up", 200);
+    })
+    .then(() => {
+      switchToGameMode(elem);
+    });
+};
+
+const chooseModeHandler = (event) => {
+  const play_again = event.currentTarget;
+  animations
+    .animateInstantFromTo(play_again.id, "button_down", 200)
+    .then(() => {
+      return animations.animateInstantFromTo(play_again.id, "button_up", 200);
+    })
+    .then(() => {
+      switchToChooseMode();
+    });
+};
+
+game_buttons.forEach((elem) => {
+  elem.addEventListener("click", gameModeHandler);
 });
+
+const play_again_button = document.querySelector("#play_again_button");
+
+play_again_button.addEventListener("click", chooseModeHandler);

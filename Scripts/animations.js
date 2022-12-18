@@ -17,6 +17,18 @@ export default class Animations {
       time: 10,
       change: 5,
     };
+
+    this.button_down = {
+      name: "boxShadow",
+      from: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+      to: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+    };
+
+    this.button_up = {
+      name: "boxShadow",
+      from: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+      to: "0px -5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+    };
   }
 
   animateFromTo(element_id, animation_name, animation_delay) {
@@ -42,6 +54,19 @@ export default class Animations {
         element.style[animation.name] = `${style_value}${animation.units}`;
         style_value += animation.change;
       }, animation.time);
+    });
+  }
+
+  animateInstantFromTo(element_id, animation_name, animation_delay) {
+    const element = document.getElementById(element_id);
+    const animation = this[animation_name];
+    element.style[animation.name] = `${animation.from}`;
+    return new Promise((resolve) => {
+      const animation_timer = setTimeout(() => {
+        clearTimeout(animation_timer);
+        resolve();
+      }, animation_delay);
+      element.style[animation.name] = `${animation.to}`;
     });
   }
 }
