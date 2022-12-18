@@ -10,10 +10,6 @@
   .game_button_big {
     height: 20vh;
   }
-
-  #load_container {
-    height: 20vh;
-  }
 }
 
 @media screen and (max-width: 800px) {
