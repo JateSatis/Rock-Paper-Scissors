@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700;900&display=swap");
 
+:root {
+  --color-blue: #2d95bf;
+  --color-red: #f15a5a;
+  --color-yellow: #f0c419;
+  --color-gray: rgba(0, 0, 0, 0.25);
+}
+
 body {
   display: grid;
   grid-template-columns: 1fr;
@@ -15,7 +22,7 @@ body {
     rgba(2, 0, 36, 1) 93%
   );
   color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "Unbounded", cursive;
   margin: 0;
   text-transform: uppercase;
@@ -104,7 +111,7 @@ main {
   height: 40%;
   border-radius: 50%;
   background-color: #fff;
-  box-shadow: 0px -5px 0px 0px rgba(34, 60, 80, 0.2) inset;
+  box-shadow: 0px -5px 0px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 .game_button_big {
@@ -120,20 +127,20 @@ main {
 .paper {
   grid-area: paper;
   justify-self: start;
-  border: 15px solid blue;
+  border: 15px solid var(--color-blue);
 }
 
 .scissors {
   grid-area: scissors;
   justify-self: end;
-  border: 15px solid yellow;
+  border: 15px solid var(--color-yellow);
 }
 
 .rock {
   grid-area: rock;
   justify-self: center;
   align-self: center;
-  border: 15px solid red;
+  border: 15px solid var(--color-red);
 }
 
 #game_mode {
@@ -175,7 +182,7 @@ main {
   height: max-content;
   grid-area: computer_choice;
   align-self: start;
-  background-color: grey;
+  background-color: var(--color-gray);
   border-radius: 50%;
 }
 
@@ -186,13 +193,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#load {
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  height: 0vh;
-  background-color: gray;
 }
 
 #play_again {
@@ -220,8 +220,8 @@ main {
   font-family: inherit;
   text-transform: inherit;
   font-size: 100%;
-  color: gray;
-  box-shadow: 0px -5px 0px 0px rgba(34, 60, 80, 0.2) inset;
+  color: var(--color-gray);
+  box-shadow: 0px -5px 0px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
 footer {

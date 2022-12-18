@@ -21,6 +21,10 @@
     grid-template-rows: 1fr 5fr 0.5fr;
   }
 
+	.game_button {
+		height: 50%;
+	}
+
   .game_button_big {
     height: 15vh;
   }

@@ -20,14 +20,14 @@ export default class Animations {
 
     this.button_down = {
       name: "boxShadow",
-      from: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
-      to: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+      from: "0px 5px 0px 0px rgba(0, 0, 0, 0.25) inset",
+      to: "0px 5px 0px 0px rgba(0, 0, 0, 0.25) inset",
     };
 
     this.button_up = {
       name: "boxShadow",
-      from: "0px 5px 0px 0px rgba(34, 60, 80, 0.2) inset",
-      to: "0px -5px 0px 0px rgba(34, 60, 80, 0.2) inset",
+      from: "0px 5px 0px 0px rgba(0, 0, 0, 0.25) inset",
+      to: "0px -5px 0px 0px rgba(0, 0, 0, 0.25) inset",
     };
   }
 
