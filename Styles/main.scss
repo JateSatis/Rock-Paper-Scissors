@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700;900&display=swap");
+
+:root {
+  --color-blue: #2d95bf;
+  --color-red: #f15a5a;
+  --color-yellow: #f0c419;
+  --color-gray: rgba(0, 0, 0, 0.25);
+}
+
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 5fr;
+  align-items: stretch;
+  justify-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(9, 9, 121);
+  background: radial-gradient(
+    circle at 50% 0,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(2, 0, 36, 1) 93%
+  );
+  color: white;
+  /* overflow: hidden; */
+  font-family: "Unbounded", cursive;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 3fr 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "game_name void score";
+  width: 40%;
+  padding: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  margin-top: 5vh;
+}
+
+#game_name {
+  display: flex;
+  align-items: center;
+  grid-area: game_name;
+  line-height: 1.2;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+#score {
+  grid-area: score;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  color: rgba(9, 9, 121, 1);
+  font-size: 1em;
+  border-radius: 20px;
+}
+
+#score p {
+  margin: 0;
+}
+
+#score_name {
+  font-weight: 400;
+}
+
+#score_number {
+  font-size: 2em;
+  font-weight: 700;
+  color: grey;
+}
+
+main {
+  width: 70%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#choose_mode {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:
+    "paper scissors"
+    "rock rock";
+  justify-content: center;
+  align-content: center;
+  align-items: start;
+  height: 90%;
+  aspect-ratio: 1/1;
+  background-image: url("../Images/bg-triangle.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.game_button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  height: 40%;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0px -5px 0px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.game_button_big {
+  position: relative;
+  aspect-ratio: 1/1;
+  height: 30vh;
+}
+
+.game_button img {
+  width: 50%;
+  height: 50%;
+}
+
+.paper {
+  grid-area: paper;
+  justify-self: start;
+  border: 15px solid var(--color-blue);
+}
+
+.scissors {
+  grid-area: scissors;
+  justify-self: end;
+  border: 15px solid var(--color-yellow);
+}
+
+.rock {
+  grid-area: rock;
+  justify-self: center;
+  align-self: center;
+  border: 15px solid var(--color-red);
+}
+
+#game_mode {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "user_name play_again computer_name"
+    "user_choice play_again computer_choice";
+  justify-content: center;
+  align-content: space-between;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+#user_name {
+  grid-area: user_name;
+  align-self: end;
+  margin-bottom: 5vh;
+}
+
+#user_choice {
+  height: max-content;
+  grid-area: user_choice;
+  align-self: start;
+}
+
+#computer_name {
+  grid-area: computer_name;
+  align-self: end;
+  margin-bottom: 5vh;
+}
+
+#computer_choice {
+  height: max-content;
+  grid-area: computer_choice;
+  align-self: start;
+  background-color: var(--color-gray);
+  border-radius: 50%;
+}
+
+#load_container {
+  aspect-ratio: 1/1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#play_again {
+  display: none;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  opacity: 0;
+  grid-area: play_again;
+  align-self: center;
+  width: 100%;
+}
+
+#play_again p {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+#play_again_button {
+  border: none;
+  background-color: white;
+  width: 80%;
+  height: 10vh;
+  border-radius: 20px;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: 100%;
+  color: var(--color-gray);
+  box-shadow: 0px -5px 0px 0px rgba(0, 0, 0, 0.25) inset;
+}

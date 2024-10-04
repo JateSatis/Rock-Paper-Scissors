@@ -4,6 +4,7 @@ import Animations from "./animations.js";
 const animations = new Animations();
 
 let count = 0;
+let max_count = 0;
 
 const variants = ["rock", "paper", "scissors"];
 let user_choice;
